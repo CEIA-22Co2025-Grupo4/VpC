@@ -66,7 +66,13 @@ Este trabajo práctico implementa un detector de máximo enfoque sobre video apl
 - `detect_maximum_focus()`: Detecta automáticamente el frame con máximo enfoque
 - `apply_unsharp_masking()`: Aplica unsharp masking para mejorar nitidez
 
-### 4. Experimentos
+### 4. Funciones de Detección de Región Temporal
+
+- `find_focus_region_by_threshold()`: Encuentra el rango de frames donde el enfoque está por encima de un umbral (basado en percentiles)
+- `find_longest_focus_region()`: Encuentra la región continua más larga donde el enfoque está por encima del umbral
+- `visualize_focus_region_temporal()`: Visualiza la curva de enfoque con la región detectada resaltada
+
+### 5. Experimentos
 
 #### Experimento 1: Medición sobre Todo el Frame
 - `process_video_full_frame()`: Procesa video frame completo
@@ -83,18 +89,30 @@ Este trabajo práctico implementa un detector de máximo enfoque sobre video apl
 - Configuraciones: 3×3, 7×5, 5×7
 - Análisis de promedio y máximo por frame
 
-### 5. Métrica Alternativa
+### 6. Métrica Alternativa
 - Comparación entre Frequency Domain y Variance of Laplacian
 - Visualización de ambas métricas lado a lado
 
-### 6. Bonus: Unsharp Masking
+### 7. Bonus: Unsharp Masking
 - `process_video_with_unsharp_masking()`: Procesa video con mejora de nitidez
 - Comparación de métricas antes y después del procesamiento
 - Análisis de la diferencia
 
-### 7. Resumen y Resultados
+### 8. Detección de Región Temporal de Máximo Enfoque
+- `find_focus_region_by_threshold()`: Detecta el rango completo de frames enfocados usando umbral por percentil
+- `find_longest_focus_region()`: Encuentra la región continua más larga de frames enfocados
+- Visualización de regiones temporales detectadas con umbrales y marcas visuales
+
+### 9. Resumen y Resultados
 - Tabla resumen con todos los frames de máximo enfoque detectados
 - Comparación entre diferentes experimentos y métricas
+
+### 10. Conclusiones
+- Análisis de consistencia entre diferentes métricas y configuraciones
+- Hallazgos principales sobre ROI, matrices de enfoque y unsharp masking
+- Comparación directa entre Frequency Domain y Variance of Laplacian
+- Recomendaciones prácticas según caso de uso (tiempo real, offline, multi-zona, focus stacking)
+- Conclusión final sobre efectividad y aplicabilidad de los métodos implementados
 
 ## Ejecución
 
@@ -127,7 +145,10 @@ Este trabajo práctico implementa un detector de máximo enfoque sobre video apl
    - **Después**: Experimento 2 - ROI central (celdas 17-21)
    - **Siguiente**: Experimento 3 - Matriz de enfoque (celdas 22-25)
    - **Luego**: Métrica alternativa - Varianza del Laplaciano (celdas 26-28)
-   - **Finalmente**: Bonus - Unsharp Masking (celdas 29-32) y Resumen (celdas 33-34)
+   - **Después**: Bonus - Unsharp Masking (celdas 29-32)
+   - **Siguiente**: Detección de región temporal (celdas 33-40)
+   - **Luego**: Resumen y resultados (celdas 41-42)
+   - **Finalmente**: Conclusiones (celdas 43-48)
 
 **Nota**: El procesamiento del video puede tardar varios minutos dependiendo de la longitud del video y la potencia de tu computadora.
 
@@ -142,6 +163,12 @@ Este trabajo práctico implementa un detector de máximo enfoque sobre video apl
 - Identificación del frame número con máximo enfoque para cada experimento
 - Comparación entre métricas (Frequency Domain vs Laplacian)
 - Análisis del efecto del unsharp masking
+
+### Detección de Región Temporal
+- Identificación de rangos de frames donde el video está enfocado (no solo un punto)
+- Dos métodos: umbral por percentil y región continua más larga
+- Visualización de regiones temporales con umbrales y marcas visuales
+- Útil para segmentación de video y análisis de períodos de enfoque
 
 ### Análisis de Matriz de Enfoque
 - Visualización de cómo varía el enfoque en diferentes regiones del frame
@@ -166,6 +193,8 @@ Este trabajo práctico implementa un detector de máximo enfoque sobre video apl
 - La detección automática usa una ventana deslizante para encontrar máximos locales
 - El unsharp masking puede expandir la zona de enfoque pero también puede introducir artefactos
 - Las diferentes métricas pueden dar resultados ligeramente diferentes según las características de la imagen
+- La detección de región temporal permite identificar períodos completos de enfoque, no solo puntos aislados
+- Los umbrales por percentil (85-90%) son configurables según las necesidades del análisis
 
 ## Referencias
 
