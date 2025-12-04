@@ -11,6 +11,7 @@ dependencies = [
     "scipy>=1.10.0",
     "jupyter>=1.0.0",
     "ipykernel>=6.25.0",
+    "pyqt6>=6.10.0",
 ]
 
 [project.optional-dependencies]
