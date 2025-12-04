@@ -9,7 +9,7 @@ VpC-main/
 ├── Material_TPs/
 │   ├── TP1/          # White Patch y Análisis de Histogramas
 │   ├── TP2/          # Detector de Máximo Enfoque
-│   └── TP3/          # (Pendiente)
+│   └── TP3/          # Detección de Logotipos con Template Matching
 ├── pyproject.toml    # Configuración del proyecto
 ├── .python-version   # Versión de Python
 └── README.md         # Este archivo
@@ -91,6 +91,9 @@ python -m ipykernel install --user --name=vpc --display-name "Python (VpC)"
 
 - **TP2**: Detector de máximo enfoque en video
   - Ver [TP2/README.md](Material_TPs/TP2/README.md) para más detalles
+
+- **TP3**: Detección de logotipos con Template Matching
+  - Ver [TP3/README.md](Material_TPs/TP3/README.md) para más detalles
 
 ## Dependencias Principales
 
